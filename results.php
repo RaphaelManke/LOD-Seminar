@@ -11,7 +11,7 @@ $basedir = dirname(realpath(__FILE__));
 $root = $basedir;
 $ldfu = $root.'/ldfu/bin/ldfu.sh';
 $n3_programm = $root.'/n3-files/chefkoch.n3';
-$input = 'http://wrapper:8888/index.php/explore/'.$suchbegriff;
+$input = 'http://manke-hosting.de/wrapper/index.php/explore/'.$suchbegriff;
 $output = $root.'/output/';
 $suchbegriff = "apfelkuchen";
 
@@ -32,10 +32,10 @@ $rezepte = $graph -> resourcesMatching('rezept:RezeptName');
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <title>Bootstrap Example</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
