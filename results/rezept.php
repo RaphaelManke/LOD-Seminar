@@ -18,7 +18,7 @@
 				<div class="col-md-2">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Info</h3>
+							<h3 class="panel-title">Bild</h3>
 						</div>
 						<ul class="list-group">
 							<li class="list-group-item">
@@ -82,6 +82,7 @@
 									<th>Produkt</th>
 									<th>Preis</th>
 									<th>Alergene</th>
+									<th>Kohlenhydrate</th>
 								</tr>
                           <?php	include 'results/ingridient.php'; ?>
 							</table>

@@ -18,6 +18,7 @@ function update(position){
 	var mengeused=position.data('mengeused');
 	var mengeusedeinheit=position.data('mengeused-einheit');
 	var alergene = position.data('hatalergene');
+	var kohlenhydrate = position.data('kohlenhydrate');
 	menge = menge * convert(einheit);
 	mengeused = mengeused * convert(mengeusedeinheit); 
 	var value = (preis * (mengeused / menge) / 100).toFixed(2);
@@ -34,6 +35,12 @@ function update(position){
 	if ($.isNumeric(value)){
 	    $('#preis-'+id).text(value);
 	}
+	if(kohlenhydrate != "leer"){
+		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">' + kohlenhydrate + ' g</span>');
+	}else{
+		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">unknown</span>');	
+	}
+	
 	var price = $('#'+table).parents('.panel-body').find('li.preis');
 	price.find('span').html(sumTable(table).toFixed(2));
 
@@ -57,6 +64,14 @@ function update(position){
 				break;
 			case "prise(n)":
 				var factor = 1/5;
+				return factor;
+				break;
+			case "ml":
+				var factor = 1;
+				return factor;
+				break;
+			case "l":
+				var factor = 1000;
 				return factor;
 				break;
 
