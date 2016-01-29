@@ -20,8 +20,13 @@ function update(position){
 	var alergene = position.data('hatalergene');
 	var kohlenhydrate = position.data('kohlenhydrate');
 	menge = menge * convert(einheit);
-	mengeused = mengeused * convert(mengeusedeinheit); 
-	var value = (preis * (mengeused / menge) / 100).toFixed(2);
+	mengeused = mengeused * convert(mengeusedeinheit);
+	if (menge != 0) {
+		var value = (preis * (mengeused / menge) / 100).toFixed(2);
+	}else{
+		var value = 0;
+	}
+	
 	
 	if (alergene == "unknown"){
 		position.parent().parent().siblings('.allegene').html('<span class="label label-default">' + alergene + '</span>');	
@@ -35,7 +40,7 @@ function update(position){
 	if ($.isNumeric(value)){
 	    $('#preis-'+id).text(value);
 	}
-	if(kohlenhydrate != "leer"){
+	if(kohlenhydrate != "leer" && kohlenhydrate != ""){
 		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">' + kohlenhydrate + ' g</span>');
 	}else{
 		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">unknown</span>');	
@@ -72,6 +77,14 @@ function update(position){
 				break;
 			case "l":
 				var factor = 1000;
+				return factor;
+				break;
+			case "st":
+				var factor = 1;
+				return factor;
+				break;
+			case "false":
+				var factor = 1;
 				return factor;
 				break;
 
