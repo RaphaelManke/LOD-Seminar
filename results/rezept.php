@@ -90,7 +90,7 @@
 					</div>
 					<div class="col-md-6">
 						<p>
-                      <?php echo htmlentities($rezept->get('rezept:rezept_zubereitung'),'UTF-8');?>
+                      <?php echo htmlentities($rezept->get('rezept:rezept_zubereitung'),ENT_QUOTES | ENT_IGNORE, "UTF-8");?>
                         
                       </p>
 					</div>

@@ -12,15 +12,17 @@ $root = $basedir;
 $ldfu = $root.'/ldfu/bin/ldfu.sh';
 $n3_programm = $root.'/n3-files/chefkoch.n3';
 $input = 'http://manke-hosting.de/wrapper/index.php/explore/'.$suchbegriff;
-$output = $root.'/output/';
-$suchbegriff = "apfelkuchen";
+$output = $root.'/output/'.$suchbegriff.'.nt';
+
+if (!file_exists($output)) {
+	
 
  shell_exec('sh '.$ldfu.' '.
  		'-i ' . $input .' '.
  		'-p '.$n3_programm.' '.
- 		'-o '.$output.$uniqid.'.nt');
-
-$graph ->parseFile($output.$uniqid.'.nt');
+ 		'-o '.$output);
+}
+$graph ->parseFile($output);
 //$graph ->parseFile('/Users/raphaelmanke/Downloads/linked-data-fu-0.9.9/streuselkuchen3.nt');
 
 //$me = $foaf->primaryTopic();
@@ -35,7 +37,7 @@ $rezepte = $graph -> resourcesMatching('rezept:RezeptName');
 <html lang="de">
   <head>
     <title>Bootstrap Example</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">    
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
