@@ -15,7 +15,7 @@ $input = 'http://wrapper:8888/index.php/explore/'.$suchbegriff;
 $output = $root.'/output/';
 $suchbegriff = "apfelkuchen";
 
- exec('sh '.$ldfu.' '.
+ shell_exec('sh '.$ldfu.' '.
  		'-i ' . $input .' '.
  		'-p '.$n3_programm.' '.
  		'-o '.$output.$uniqid.'.nt');
