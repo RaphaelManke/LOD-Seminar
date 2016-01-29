@@ -90,7 +90,7 @@
 					</div>
 					<div class="col-md-6">
 						<p>
-                      <?php echo $rezept->get('rezept:rezept_zubereitung');?>
+                      <?php echo htmlentities($rezept->get('rezept:rezept_zubereitung'));?>
                         
                       </p>
 					</div>
