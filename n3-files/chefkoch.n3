@@ -1,0 +1,65 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix http: <http://www.w3.org/2011/http#> . 
+@prefix httpm: <http://www.w3.org/2011/http-methods#> . 
+@prefix arecipe: <http://purl.org/amicroformat/arecipe/> .
+@prefix string: <http://www.w3.org/2000/10/swap/string#>.
+
+#@prefix explore: <http://manke-hosting.de/wrapper/index.php/explore/>.
+#@prefix lookup: <http://manke-hosting.de/wrapper/lookup/>.
+#@prefix reweSuche: <http://manke-hosting.de/wrapper/reweSuche/> .
+#@prefix reweProdukt: <http://manke-hosting.de/wrapper/reweProdukt/>.
+
+@prefix explore: <http://wrapper:8888/index.php/explore/>.
+@prefix rezept: <http://manke-hosting.de/ns-syntax#>.
+@prefix lookup: <http://wrapper:8888/index.php/lookup/>.
+@prefix reweSuche: <http://wrapper:8888/index.php/reweSuche/> .
+@prefix reweProdukt: <http://wrapper:8888/index.php/reweProdukt/>.
+
+
+
+# load futher informations about the recipe
+
+{ ?x owl:sameAs ?y . }
+=> 
+{ [] http:mthd httpm:GET ;
+       http:requestURI ?y . } .
+
+# do a rewe search
+{ 	?uri rezept:reweSuche ?match . }
+=>
+{ [] http:mthd httpm:GET ;
+       http:requestURI ?match . } .
+
+
+# get data from codecheck
+{ 	?q rezept:codecheckWrapperLink ?matchCode . }
+=>
+{ [] http:mthd httpm:GET ;
+       http:requestURI ?matchCode . } .
+# get data from rewe product details
+# { 	?q rezept:reweProduktWrapperLink ?matchRewe . }
+# =>
+# { [] http:mthd httpm:GET ;
+#        http:requestURI ?matchRewe . } .
+
+       
+
+{?reweUri rezept:type "product";
+		rezept:gtin ?gtin .
+	?bnCode rezept:ean ?gtin;
+			?codePred ?codeObjec .}
+=>
+{?reweUri ?codePred ?codeObjec . } .
+
+{ ?x a arecipe:Recipe ;
+	rezept:rezept_zutaten ?bn . 
+	?bn rezept:name ?name .
+	?z rezept:suchbegriff ?name . 
+	}
+=> 
+{ 
+       ?bn rezept:possible_produkt ?z .} .
+
+
