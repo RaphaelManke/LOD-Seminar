@@ -36,16 +36,21 @@
 							echo "unknown";
 						};
 					?>"
-					data-kohlenhydrate="<?php 
-						
+					<?php 						
 						if ($product->hasProperty('rezept:nutriTable')){
-							echo $product->get('rezept:nutriTable')->get('rezept:carbonhydrate');
-							//echo $nutritable ->get('rezept:carbonhydrate');
-						}else {
-							echo 'leer';
+							$table = $product->get('rezept:nutriTable');
+							$carbonhydrate = $table->get('rezept:carbonhydrate');
+							$fett = $table->get('rezept:fat');
+							$kalorien = $table->get('rezept:calories');
+							$zucker = $table->get('rezept:sugar');
 						}
-					?>">
-					<?php echo $product->get('rezept:brand') ." - ".$product->get('rezept:title');?>
+					?>
+					data-kohlenhydrate="<?php if (isset($carbonhydrate)){echo $carbonhydrate;}?>"
+					data-fett="<?php if (isset($fett)){echo $fett;}?>"
+					data-kalorien="<?php if (isset($kalorien)){echo $kalorien;}?>"
+					data-zucker="<?php if (isset($zucker)){echo $zucker;}?>"
+					>
+					<?php echo $product->get('rezept:brand') ." - ".$product->get('rezept:title') ." - ".($product->get('rezept:price')->getValue()/100).'&#8364;';?>
 			</option>
 		   <?php endforeach;?>
 		  </select></td>
@@ -53,6 +58,12 @@
 	<td class="allegene">
 	</td>
 	<td class="kohlenhydrate">
+	</td>
+	<td class="kalorien">
+	</td>
+	<td class="zucker">
+	</td>
+	<td class="fett">
 	</td>
 </tr>
 <?php endforeach;?>

@@ -51,10 +51,10 @@
 										<div class="panel-body">
 											<ul class="list-group">
 												<li class="list-group-item"><?php echo $rezept->get('rezept:RezeptName2');?></li>
-												<li class="list-group-item">Kalorien <span class="badge">140
-														kcal</span></li>
-												<li class="list-group-item">Fett<span class="badge">10 g</span></li>
+												<li class="list-group-item kalorien">Kalorien <span class="badge"></span></li>
 												<li class="list-group-item preis">Preis<span class="badge">0</span></li>
+												<li class="list-group-item zucker">Zucker<span class="badge">0</span></li>
+												<li class="list-group-item fett">Fett<span class="badge">0</span></li>
 											</ul>
 										</div>
 									</div>
@@ -67,7 +67,7 @@
 										</div>
 										<div class="panel-body">
 											<ul class="list-group">
-												<li class="list-group-item">Arbeitszeit: ca. 30 min</li>
+												<li class="list-group-item">Arbeitszeit: <?php echo $rezept->get('rezept:Minuten');?> min</li>
 												<li class="list-group-item">Schwierigkeit: <?php echo $rezept->get('rezept:rezept_schwierigkeit');?></li>
 												<li class="list-group-item">Portionen: <?php echo $rezept->get('rezept:rezept_user_portionen');?></li>
 											</ul>
@@ -86,7 +86,7 @@
 							<div class="row clearfix collapse"
 								id="collapse-more-<?php echo $key;?>">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-12">
 										<div class="panel-<?php echo $key;?> panel-default">
 											<!-- Default panel contents -->
 											<div class="panel-heading">Zutaten</div>
@@ -98,13 +98,16 @@
 													<th>Produkt</th>
 													<th>Preis</th>
 													<th>Alergene</th>
-													<th>Kohlenhydrate</th>
+													<th>Kohlenhydrate (g)</th>
+													<th>Kalorien (kcal)</th>
+													<th>Zucker (g)</th>
+													<th>Fett (g)</th>
 												</tr>
                           <?php	include 'results/ingridient.php'; ?>
 							</table>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-12">
 										<p>
                       <?php echo htmlentities($rezept->get('rezept:rezept_zubereitung'),ENT_QUOTES | ENT_IGNORE, "UTF-8");?>
                         

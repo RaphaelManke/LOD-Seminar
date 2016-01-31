@@ -19,8 +19,17 @@ function update(position){
 	var mengeusedeinheit=position.data('mengeused-einheit');
 	var alergene = position.data('hatalergene');
 	var kohlenhydrate = position.data('kohlenhydrate');
+	var kalorien = position.data('kalorien');
+	var zucker = position.data('zucker');
+	var fett = position.data('fett');
 	menge = menge * convert(einheit);
 	mengeused = mengeused * convert(mengeusedeinheit);
+	if ($.isNumeric(kohlenhydrate)){
+		kohlenhydrate = kohlenhydrate * (mengeused * convert(mengeusedeinheit) / 100 ).toFixed(2);	
+	}
+	if ($.isNumeric(kalorien)){
+		kalorien = kalorien * (mengeused * convert(mengeusedeinheit) / 100 ).toFixed(2);	
+	}
 	if (menge != 0) {
 		var value = (preis * (mengeused / menge) / 100).toFixed(2);
 	}else{
@@ -40,14 +49,35 @@ function update(position){
 	if ($.isNumeric(value)){
 	    $('#preis-'+id).text(value);
 	}
-	if(kohlenhydrate != "leer" && kohlenhydrate != ""){
-		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">' + kohlenhydrate + ' g</span>');
+	if($.isNumeric(kohlenhydrate)){
+		position.parent().parent().siblings('.kohlenhydrate').html('<span class="label label-primary">' + kohlenhydrate.toFixed(2) +'</span>');
 	}else{
-		position.parent().parent().siblings('.kohlenhydrate').html('<span class="badge">unknown</span>');	
+		position.parent().parent().siblings('.kohlenhydrate').html('<span class="label label-default">unknown</span>');	
+	}
+	if($.isNumeric(kalorien)){
+		position.parent().parent().siblings('.kalorien').html('<span class="label label-primary">' + kalorien.toFixed(2) + '</span>');
+	}else{
+		position.parent().parent().siblings('.kalorien').html('<span class="label label-default">unknown</span>');	
+	}
+	if($.isNumeric(fett)){
+		position.parent().parent().siblings('.fett').html('<span class="label label-primary">' + fett.toFixed(2) + '</span>');
+	}else{
+		position.parent().parent().siblings('.fett').html('<span class="label label-default">unknown</span>');	
+	}
+	if($.isNumeric(zucker)){
+		position.parent().parent().siblings('.zucker').html('<span class="label label-primary">' + zucker.toFixed(2) + '</span>');
+	}else{
+		position.parent().parent().siblings('.zucker').html('<span class="label label-default">unknown</span>');	
 	}
 	
-	var price = $('#'+table).parents('.panel-body').find('li.preis');
-	price.find('span').html(sumTable(table).toFixed(2));
+	var price_field = $('#'+table).parents('.panel-body').find('li.preis');
+	price_field.find('span').html(sumTable(table,' .preis').toFixed(2)+' &euro;');
+	var kalorien_field = $('#'+table).parents('.panel-body').find('li.kalorien');
+	kalorien_field.find('span').html(sumTable(table,' .kalorien span').toFixed(2)+' kcal');
+	var zucker_field = $('#'+table).parents('.panel-body').find('li.zucker');
+	zucker_field.find('span').html(sumTable(table,' .zucker span').toFixed(2)+' g');
+	var fett_field = $('#'+table).parents('.panel-body').find('li.fett');
+	fett_field.find('span').html(sumTable(table,' .fett span').toFixed(2)+' g');
 
  
 }
@@ -59,7 +89,15 @@ function update(position){
 				var factor = 1000;
 				return factor;
 				break;
+			case "kilogramm":
+				var factor = 1000;
+				return factor;
+				break;
 			case "g":
+				var factor = 1;
+				return factor;
+				break;
+			case "gramm":
 				var factor = 1;
 				return factor;
 				break;
@@ -71,7 +109,15 @@ function update(position){
 				var factor = 1/5;
 				return factor;
 				break;
+			case "prise":
+				var factor = 1/5;
+				return factor;
+				break;
 			case "ml":
+				var factor = 1;
+				return factor;
+				break;
+			case "milliliter":
 				var factor = 1;
 				return factor;
 				break;
@@ -79,7 +125,19 @@ function update(position){
 				var factor = 1000;
 				return factor;
 				break;
+			case "liter":
+				var factor = 1000;
+				return factor;
+				break;
 			case "st":
+				var factor = 1;
+				return factor;
+				break;
+			case "stueck":
+				var factor = 1;
+				return factor;
+				break;
+			case "stück":
 				var factor = 1;
 				return factor;
 				break;
@@ -95,10 +153,11 @@ function update(position){
 				break;
 			}
 			};
-function sumTable (table) {
+function sumTable (table, colum) {
 	sum = 0;
-	$.each($('#'+table+' .preis'),function(){
-		if($.isNumeric( $(this).html() ) ){
+	$.each($('#'+table+colum),function(){
+		$value = $(this).html();
+		if($.isNumeric( $value ) ){
 			sum = sum + parseFloat($(this).html());
 		}
 		});

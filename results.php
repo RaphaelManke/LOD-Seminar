@@ -6,8 +6,8 @@ require_once 'EasyRdf.php';
 $graph = new EasyRdf_Graph();
 $out = "";
 $uniqid = uniqid();
-$suchbegriff = $_GET["qname"];
-$suchbegriff='apfelkuchen';
+$suchbegriff = str_replace(" ", "+", $_GET["qname"]);
+//$suchbegriff='123apfelkuchen';
 $rdf ="";
 if (isset($_GET["rdf"])){
 	$rdf = $_GET["rdf"];
@@ -16,16 +16,12 @@ $basedir = dirname(realpath(__FILE__));
 $root = $basedir;
 $ldfu = $root.'/ldfu/bin/ldfu.sh';
 $n3_programm = $root.'/n3-files/chefkoch.n3';
-$input = 'http://wrapper:8888/index.php/explore/'.$suchbegriff;
+$input = 'http://manke-hosting.de/wrapper/index.php/explore/'.$suchbegriff;
 $output = $root.'/output/'.$suchbegriff.'.nt';
 
 if (!file_exists($output)) {
-	
-
- shell_exec('sh '.$ldfu.' '.
- 		'-i ' . $input .' '.
- 		'-p '.$n3_programm.' '.
- 		'-o '.$output);
+$command = 'sh '.$ldfu.' '.'-i ' . $input .' '.'-p '.$n3_programm.' '.'-o '.$output;
+ shell_exec($command);
 }
 $graph ->parseFile($output);
 //$graph ->parseFile('/Users/raphaelmanke/Downloads/linked-data-fu-0.9.9/streuselkuchen3.nt');
