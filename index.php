@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
@@ -22,7 +24,7 @@
    <form action="results.php" method="get">
        <div class="jumbotron">
       
-         <div class="container">
+         <div class="container col-md-12">
           
              <div>
                  <h1>
@@ -31,7 +33,7 @@
                  <p>try to find something...</p>    
              </div>
             
-           <div class="form-group">
+           <div class="form-group col-md-8">
                     <input type="text" placeholder="suchen" class="form-control" name="qname">
              	</div>
              
@@ -39,7 +41,7 @@
        </div> 
       </form>  
        <div class="footer">
-           <footer>@ 2015 aifb.kit.edu</footer>
+           <footer>LOD-Seminar @ 2016 aifb.kit.edu</footer>
        </div>
 
 

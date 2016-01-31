@@ -1,0 +1,89 @@
+.nav a{
+  color: #5a5a5a;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 14px 10px;
+  text-transform: uppercase;
+}
+
+.nav {
+  padding-right: auto;
+}
+
+.jumbotron {
+  background-image: url('../img/muffin.png');
+  height: 600px;
+  padding-right: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron .container h1{
+  position: relative;
+  top:100px;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: central;
+}
+
+.jumbotron .container p{
+  position: relative;
+  top:100px;
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: central;
+}
+
+.jumbotron .container .form-group{
+  position: relative;
+  top:200px;
+  height: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron .container .form-group a{
+  position: relative;
+  padding-left: 400px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer{
+    position: relative;
+    left: 50px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 48px;  
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

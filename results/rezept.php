@@ -7,8 +7,27 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/page.js" type="text/javascript"></script>
+        <style>
+            body {
+                padding-top: 60px;
+                padding-bottom: 20px;
+            }
+        </style>
+
 </head>
 <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <ul>
+                      <li class="pull-left">
+                         <a class="navbar-brand" href="#">Are You Hungry</a> 
+                      </li>
+                  </ul> 
+               </div> 
+            </div>
+        </nav>
+
 	<div class="container">
 		<div class="row">
 			<div class="panel-group" id="accordion" role="tablist"
@@ -111,7 +130,8 @@
 										<p>
                       <?php echo htmlentities($rezept->get('rezept:rezept_zubereitung'),ENT_QUOTES | ENT_IGNORE, "UTF-8");?>
                         
-                      </p>
+                      </p>									
+                      <a href="<?php echo $rezept->get('rezept:rezept_frontend_url');?>" role="button" class="btn btn-danger">Auf Chefkoch.de ansehen</a>
 									</div>
 								</div>
 							</div>
@@ -122,5 +142,9 @@
         </div>
 		</div>
 	</div>
+       <div class="footer">
+           <footer>LOD-Seminar @ 2016 aifb.kit.edu</footer>
+       </div>
+
 </body>
 </html>
