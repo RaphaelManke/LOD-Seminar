@@ -5,9 +5,15 @@
 <title>Insert title here</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="css/ladda.min.css">
     
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/ladda.jquery.min.js"></script>
+    <script src="js/ladda.min.js"></script>
+    <script src="js/spin.min.js"></script>
+    
 </head>
 <body>
 

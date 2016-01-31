@@ -30,6 +30,12 @@ function update(position){
 	if ($.isNumeric(kalorien)){
 		kalorien = kalorien * (mengeused * convert(mengeusedeinheit) / 100 ).toFixed(2);	
 	}
+	if ($.isNumeric(zucker)){
+		zucker = zucker * (mengeused * convert(mengeusedeinheit) / 100 ).toFixed(2);	
+	}
+	if ($.isNumeric(fett)){
+		fett = fett * (mengeused * convert(mengeusedeinheit) / 100 ).toFixed(2);	
+	}
 	if (menge != 0) {
 		var value = (preis * (mengeused / menge) / 100).toFixed(2);
 	}else{
