@@ -38,20 +38,37 @@
 =>
 { [] http:mthd httpm:GET ;
        http:requestURI ?matchCode . } .
+
 # get data from rewe product details
 # { 	?q rezept:reweProduktWrapperLink ?matchRewe . }
 # =>
 # { [] http:mthd httpm:GET ;
 #        http:requestURI ?matchRewe . } .
 
-       
+# get data from fddb product details
+# { 	?q rezept:fddbWrapperLink ?matchRewe . }
+# =>
+# { [] http:mthd httpm:GET ;
+#        http:requestURI ?matchRewe . } .
 
+       
+#copy codecheck data to product
 {?reweUri rezept:type "product";
 		rezept:gtin ?gtin .
 	?bnCode rezept:ean ?gtin;
 			?codePred ?codeObjec .}
-=>
-{?reweUri ?codePred ?codeObjec . } .
+ =>
+ {?reweUri ?codePred ?codeObjec . } .
+
+#copy fddb data to product
+#{?reweUri rezept:type "product";
+#		rezept:gtin ?gtin .
+#	?bnCode rezept:sourecName "fddb";
+#			rezept:gtin ?gtin;
+#			?fddPred ?fddObjec .}
+#=>
+#{?reweUri ?fddPred ?fddObjec . } .
+
 
 { ?x a arecipe:Recipe ;
 	rezept:rezept_zutaten ?bn . 

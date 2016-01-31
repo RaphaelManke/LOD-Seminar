@@ -52,7 +52,9 @@
 					>
 					<?php echo $product->get('rezept:brand') ." - ".$product->get('rezept:title') ." - ".($product->get('rezept:price')->getValue()/100).'&#8364;';?>
 			</option>
-		   <?php endforeach;?>
+		   <?php 
+		   unset($table,$carbonhydrate,$fett,$kalorien,$zucker);		    
+		   endforeach;?>
 		  </select></td>
 	<td class="preis" id="preis-<?php echo $key."-".$counter;?>"></td>
 	<td class="allegene">
