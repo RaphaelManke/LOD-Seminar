@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Hungerkiller</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/ladda-themeless.min.css">
@@ -34,7 +34,7 @@
           
              <div>
                  <h1>
-                     <em>Hast schon Hunger?</em>
+                     <em>Hast du schon Hunger?</em>
                  </h1>
                  <p>try to find something...</p>    
              </div>

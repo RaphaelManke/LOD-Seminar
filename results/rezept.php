@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Bootstrap Example</title>
+<title>Hungerkiller - Result</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -21,7 +21,7 @@
                <div class="navbar-header">
                   <ul>
                       <li class="pull-left">
-                         <a class="navbar-brand" href="#">Are You Hungry</a> 
+                         <a class="navbar-brand" href="#">Hungerkiller</a> 
                       </li>
                   </ul> 
                </div> 
