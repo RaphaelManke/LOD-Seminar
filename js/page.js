@@ -147,6 +147,38 @@ function update(position){
 				var factor = 1;
 				return factor;
 				break;
+			case "tl":
+				var factor = 4;
+				return factor;
+				break;
+			case "teelöffel":
+				var factor = 4;
+				return factor;
+				break;
+			case "teeloeffel":
+				var factor = 4;
+				return factor;
+				break;
+			case "el":
+				var factor = 10;
+				return factor;
+				break;
+			case "esslöffel":
+				var factor = 10;
+				return factor;
+				break;
+			case "essloeffel":
+				var factor = 10;
+				return factor;
+				break;
+			case "scheibe":
+				var factor = 30;
+				return factor;
+				break;
+			case "tasse":
+				var factor = 150;
+				return factor;
+				break;
 			case "false":
 				var factor = 1;
 				return factor;
