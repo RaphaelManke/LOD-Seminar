@@ -144,6 +144,7 @@
 	</div>
        <div class="footer">
            <footer>LOD-Seminar @ 2016 aifb.kit.edu</footer>
+           <a href="<?php echo '/output/'.$suchbegriff.'.nt';?>">Link</a>
        </div>
 
 </body>
